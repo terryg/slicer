@@ -12,8 +12,7 @@ CONAN_ARGS = -s compiler=clang -s compiler.version=18 -s build_type=$(BUILD_TYPE
 
 $(SETUP_STAMP): conanfile.py CMakeLists.txt
 	$(CONAN) install -of _build $(CONAN_ARGS) -b missing conanfile.py
-	cmake -S . -B _build \
-				--preset conan-debug \
+	cmake -S . -B _build --preset conan-debug \
         -DCMAKE_BUILD_TYPE=$(BUILD_TYPE) \
         -DCTEST_OUTPUT_ON_FAILURE=True
 	touch $(SETUP_STAMP)
