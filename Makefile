@@ -5,6 +5,8 @@ CONAN = $(VENV)/bin/conan
 
 .PHONY: setup build clean
 
+all: setup build;
+
 $(VENV)/bin/activate: ## Creates a Python virtual environment (venv)
 	python3 -m venv $(VENV)
 	$(PYTHON) -m pip install --upgrade pip
@@ -15,7 +17,7 @@ setup: $(VENV)/bin/activate ## Setup to lint, build, and test
 	$(CONAN) profile detect --force
 	$(MAKE) -C ./slicer setup
 
-build:
+build: setup
 	$(MAKE) -C ./slicer build
 
 clean:

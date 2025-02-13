@@ -31,7 +31,7 @@ static constexpr double EPSILON = 1e-6;
 
 int main(int argc, char* argv[])
 {
-  cxxopts::Options options("slicer", "Slice a mesh at a given interval in Z. Output in folder alongside input file.");
+  cxxopts::Options options("slicer", "Slice a mesh at a given interval in Z.");
 
   options.add_options()
     ("h, help", "Show this help message and exit")
@@ -47,6 +47,11 @@ int main(int argc, char* argv[])
   if (result.count("help")) {
     std::cout << options.help() << std::endl;
     exit(0);
+  }
+
+  if (result.count("paths") == 0) {
+    std::cerr << "At least one filepath must be specified." << std::endl;
+    return 1;
   }
 
   double thickness = result["thickness"].as<double>();
