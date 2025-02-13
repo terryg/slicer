@@ -9,6 +9,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
 
 find_package(cgal REQUIRED)
-
+find_package(cxxopts REQUIRED)
+  
 add_executable(slicer main.cpp)
-target_link_libraries(slicer CGAL::CGAL)
+target_link_libraries(slicer CGAL::CGAL cxxopts::cxxopts)

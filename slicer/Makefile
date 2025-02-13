@@ -1,7 +1,6 @@
 VENV ?= ../_venv
 CONAN = $(VENV)/bin/conan
 SETUP_STAMP = .slicer.setup.stamp
-JOBS = -j$(echo "$(nproc) / 2" | bc)
 BUILD_TYPE ?= Debug
 
 .PHONY: setup lint build test clean
@@ -22,10 +21,10 @@ setup: $(SETUP_STAMP);
 lint: setup;
 
 build: setup
-	$(MAKE) $(JOBS) -C _build
+	$(MAKE) -C _build
 
 test:
-	$(MAKE) $(JOBS) -C _build test
+	$(MAKE) -C _build test
 
 clean:
 	rm -rf $(SETUP_STAMP)

@@ -1,5 +1,4 @@
 from conan import ConanFile
-from conan.tools.cmake import CMake
 
 
 class Slicer(ConanFile):
@@ -8,9 +7,5 @@ class Slicer(ConanFile):
 
     def requirements(self):
         self.requires("cgal/6.0.1")
-
-    def build(self):
-        cmake = CMake(self)
-        cmake.configure()
-        cmake.build()
+        self.requires("cxxopts/3.2.0")
 

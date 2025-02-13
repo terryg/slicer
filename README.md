@@ -1,7 +1,7 @@
 # Slicer
 
 Canonical mesh slicer using CGAL. Slices input mesh along Z-axis at
-desired thickness (epsilon == 1e-6).
+desired thickness (epsilon: 1e-6).
 
 ## Development
 
@@ -21,7 +21,7 @@ $ pyenv install 3.12.6
 $ pyenv global 3.12.6
 ```
   
-Clone this repository and then setup & build. Ensure `python3 --version` is 3.12.6
+Clone this repository. Ensure `python3 --version` reports `3.12.6`. Setup and build. Executable found under `./slicer/_build`.
 
 ```
 $ git clone https://github.com/terryg/slicer.git
@@ -34,7 +34,7 @@ $ make test
 $ ./slicer/_build/slicer --help
 ```
 
-Use `make clean` to build from scratch. Use `rm -rf ~/.conan2` to rebuild Conan packages.
+Use `make clean` to build from scratch. Include `rm -rf ~/.conan2` to rebuild Conan packages.
   
 ## License
 
